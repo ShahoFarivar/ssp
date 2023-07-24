@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SSP</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>  
+        <div class="main-area container-fluid">
+            <div class="row main-area-row">
+                <!-- main-page -->
+                <div class="main-page-items" id="header-bar">
+                    <div id="main-title">Sherbal Space Programm</div>
+                    <div id="money-main">Money:
+                        <span class="money-amount" ></span>
+                    </div>
+                </div>
+                <div class="main-page-items" id="inventory-info">
+                    <p>Rockets:</p>
+                    <p><span id="chem-rocket-amount-main"></span></p>
+                </div>
+                <div class="main-page-items" id="main-menu">
+                    <button class="menu-btn" id="science-btn">Science</button>
+                    <button class="menu-btn" id="destinations-btn">Destinations</button>
+                    <button class="menu-btn" id="new-rocket-btn">New Rocket</button>
+                    <button class="menu-btn" id="missions-btn">Missions</button>
+                </div> 
+                <!-- science-page -->
+                <div class="page container-fluid" id="science-page">
+                    <div class="row top-bar-area">
+                         <div class="col-3">
+                             <div class="info-section">
+                                 <div class="info-top">Earth</div>
+                                 <div class="info-bottom d-flex">
+                                    <p class="money-page">Money: 
+                                        <span class="money-amount"></span>  
+                                    </p>
+                                    <p id="tech-point-page">Tech Points: </p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-6 title-section">
+                            Research New Technologies
+                         </div>
+                    </div>
+                     <div class="row lower-area">
+                         <div class="col-1 left-sidebar flex-column">
+                             <div class="btn-section d-flex flex-column">
+                                <button class="menu-btn" id="science-btn-1">Technologies</button>
+                                <button class="menu-btn" id="science-btn-2">Single-Use</button>
+                                <button class="menu-btn" id="science-btn-3">Reusable</button>
+                                <button class="menu-btn" id="science-btn-4">Building & Crafting</button>
+                                <button class="menu-btn" id="science-btn-5">Transport</button>
+                             </div>
+                             <button class="back-btn">Back</button>
+                         </div>
+                         <div class="col-10 right-siderbar">
+                            <div class="row">
+                                <div class="col-5 left-section">
+                                    <div id="left-section-science-1">
+                                        <p class="disc-header">Technologies</p>
+                                    </div>
+                                    <div id="left-section-science-2">
+                                        <p class="disc-header">Single-use Spacecrafts</p>
+                                        <button class="menu-btn">Chemical</button>
+                                        <button class="menu-btn">Ion Powered</button>
+                                        <button class="menu-btn">Moon Lander</button>
+                                    </div>
+                                    <div id="left-section-science-3">
+                                        <p class="disc-header">Reusable Spacecrafts</p>
+                                    </div>
+                                    <div id="left-section-science-4">
+                                        <p class="disc-header">Building & Crafting</p>
+                                    </div>
+                                    <div id="left-section-science-5">
+                                        <p class="disc-header">Transport</p>
+                                    </div>
+                                </div>
+                                <div class="col-5 right-section">
+                                    <div id="right-section-science-1">
+                                        <p class="disc-header">X1</p>
+                                        <div class="disc">
+                                            <p>Skins not available for this ship type.</p>
+                                        </div>
+                                    </div>
+                                    <div id="right-section-science-2">
+                                        <div class="right-section-discriptions">
+                                            <div class="first-moon-lander-disc-sci">
+                                                <p class="disc-header" id="first-moon-lander-header-sci">First Moon Lander</p>
+                                                <p class="disc">+0.3 Au range</p>
+                                                <p class="disc">Money costs: <span class="stat-digit">25</span></p>
+                                                <p class="disc">Tech costs: <span class="stat-digit">0</span></p>
+                                                <button class="menu-btn" id="research-first-moon-lander">Research</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="right-section-science-3">
+                                        <p class="disc-header">X3</p>
+                                        <div class="disc">
+                                            <p>X33</p>
+                                        </div>
+                                    </div>
+                                    <div id="right-section-science-4">
+                                        <p class="disc-header">X4</p>
+                                    </div>
+                                    <div id="right-section-science-5">
+                                        <p class="disc-header">X5</p>
+                                    </div>
+                                </div> 
+                            </div> 
+                         </div>      
+                     </div>         
+                </div>
+                <!-- destination-page -->
+                <div class="container-fluid" id="destination-page">
+                    <button class="planets-btn" id="planet-moon">Moon</button>
+                    <button id="dest-page-back-btn">Back</button>
+                    <button id="missions-page-btn">Missions</button>
+                </div>
+                <!-- new-rocket-page -->
+                <div class="page container-fluid" id="new-rocket-page">
+                   <div class="row top-bar-area">
+                        <div class="col-3">
+                            <div class="info-section">
+                                <div class="info-top">Earth</div>
+                                <div class="info-bottom d-flex">
+                                    <p class="money-page">Money: 
+                                        <span class="money-amount"></span>  
+                                    </p>
+                                    <p id="tech-point-page">Tech Point: </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 title-section">Build new ships</div>
+                   </div>
+                   <div class="row lower-area">
+                    <div class="col-1 left-sidebar flex-column">
+                        <div class="btn-section d-flex flex-column">
+                           <button class="menu-btn" id="new-rocket-btn-1">Single Use</button>
+                           <button class="menu-btn" id="new-rocket-btn-2">Reusable</button>
+                           <button class="menu-btn" id="new-rocket-btn-3">Modifications</button>
+                           <button class="menu-btn" id="new-rocket-btn-4">Hanger</button>
+                        </div>
+                        <button class="back-btn">Back</button>
+                    </div>
+                    <div class="col-10 right-siderbar">
+                       <div class="row">
+                           <div class="col-5 left-section">
+                               <div id="left-section-new-rocket-1">
+                                    <button class="menu-btn" id="new-chem-sat-btn">Chemical Satellite</button>
+                                    <button class="menu-btn" id="new-moon-lander-btn">Moon Lander</button>
+                               </div>
+                               <div id="left-section-new-rocket-2">
+                                   <p class="disc-header">x2</p>
+                               </div>
+                               <div id="left-section-new-rocket-3">
+                                   <p class="disc-header">x3</p>
+                               </div>
+                               <div id="left-section-new-rocket-4">
+                                   <p class="disc-header">x4</p>
+                               </div>
+                           </div>
+                           <div class="col-5 right-section">
+                               <div id="right-section-new-rocket-1" >
+                                    <div class="single-rocket-detail" id="new-chem-rocket-detail">
+                                        <p class="disc-header">Chemical Satellite</p>
+                                        <div class="disc">
+                                            <p>A basic satellite with a classical propulsion system.</p>
+                                            <p>Has limited range.</p>
+                                            <p>Includes launch assist into space.</p>
+                                            <div class="build-cost">Build Costs: 50 Credits</div>
+                                        </div>    
+                                        <button class="menu-btn build-btn-single" id="chem-rocket-build-btn">Build</button>
+                                    </div>
+                                    <div class="single-rocket-detail" id="moon-lander-detail">
+                                        <p class="disc-header">Moon Lander</p>
+                                        <div class="disc">
+                                            <p>This space vehicle is the first proposed shipd to land on the moon and able to land on the moon and return. This ship cant be reused after return and has this limited use.</p>
+                                            <p>Includes launch assist into space.</p>
+                                            <p>Range: <span class="stat-digit">0.5 AU</span></p>
+                                            <p>Mass: <span class="stat-digit">5</span></p>
+                                            <p>Speed: <span class="stat-digit">10 AU/h</span></p>
+                                            <p>Cargo: <span class="stat-digit">3</span></p>
+                                            <p>Seats: <span class="stat-digit">1</span></p>
+                                            <p>Lifesupport: <span class="stat-digit">5 (+3 Cargo)</span></p>
+                                            <div class="build-cost">Build Costs: 25 Credits</div>
+                                        </div>    
+                                        <button class="menu-btn build-btn-single" id="moon-lander-build-btn">Build</button>
+                                    </div>
+                               </div>
+                               <div id="right-section-new-rocket-2">
+                                   <p class="disc-header">Astronaunts List</p>
+                                   <div class="disc">
+                                       <p>y2</p>
+                                   </div>
+                               </div>
+                               <div id="right-section-new-rocket-3">
+                                   <p class="disc-header">Cargo List</p>
+                                   <div class="disc">
+                                       <p>y3</p>
+                                   </div>
+                               </div>
+                               <div id="right-section-new-rocket-4">
+                                   <p class="disc-header">Send Rocket</p>
+                                   <div class="disc">
+                                       <p>y4</p>
+                                   </div>
+                               </div>
+                           </div> 
+                       </div> 
+                    </div>      
+                </div>
+                </div>
+                <!-- missions-page -->
+                <div class="page container-fluid" id="missions-page">
+                    <div class="row top-bar-area">
+                         <div class="col-3">
+                             <div class="info-section">
+                                 <div class="info-top">Earth</div>
+                                 <div class="info-bottom d-flex">
+                                    <p class="money-page">Money: 
+                                        <span class="money-amount"></span>  
+                                    </p>
+                                    <p id="tech-point-page">Rocket Durability: </p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-6 title-section">
+                            <span id="chem-rocket-mission-btn-topbar"></span>
+                         </div>
+                    </div>
+                     <div class="row lower-area">
+                         <div class="col-1 left-sidebar flex-column">
+                             <div class="btn-section d-flex flex-column">
+                                <button class="menu-btn" id="mission-btn-1">Skins</button>
+                                <button class="menu-btn" id="mission-btn-2">Astronaunts</button>
+                                <button class="menu-btn" id="mission-btn-3">Cargo</button>
+                                <button class="menu-btn" id="mission-btn-4">Send Rocket</button>
+                             </div>
+                             <button class="back-btn">Back</button>
+                         </div>
+                         <div class="col-10 right-siderbar">
+                            <div class="row">
+                                <div class="col-5 left-section">
+                                    <div id="left-section-mission-1">
+                                        <p class="disc-header">Available ship skins</p>
+                                    </div>
+                                    <div id="left-section-mission-2">
+                                        <p class="disc-header">On Planet:</p>
+                                    </div>
+                                    <div id="left-section-mission-3">
+                                        <p class="disc-header">Items on planet</p>
+                                    </div>
+                                    <div id="left-section-mission-4">
+                                        <div class="no-ship-selected">
+                                            <p >No ship selected.</p>
+                                            <p>Select a ship from the top to open available actions.</p>
+                                        </div>
+                                        <div class="chem-rocket-stats-section">
+                                            <p class="disc-header chem-rocket-stats" id="ship-stat-mission">Ship Stats</p>
+                                            <p class="chem-rocket-stats">Fuel: <span class="stat-digit">0/0</span></p>
+                                            <p class="chem-rocket-stats">Speed:  <span class="stat-digit">15 AU/h</span></p>
+                                            <p class="chem-rocket-stats">Range:  <span class="stat-digit">7 AU</span></p>
+                                            <p class="chem-rocket-stats">Cargo Space:  <span class="stat-digit">0</span></p>
+                                            <p class="chem-rocket-stats">Durability:    <span class="stat-digit">100/100</span></p>
+                                            <p class="chem-rocket-stats">On board: <span class="stat-digit">0/0</span></p>
+                                            <button class="chem-rocket-stats" id="set-destination-btn">Set Destination</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 right-section">
+                                    <div id="right-section-mission-1">
+                                        <p class="disc-header" id="disc-header-1">Available ship modules</p>
+                                        <div class="disc">
+                                            <p>Skins not available for this ship type.</p>
+                                        </div>
+                                    </div>
+                                    <div id="right-section-mission-2">
+                                        <p class="disc-header">On Ship:</p>
+                                        <div class="disc" id="disc-header-2">
+                                            <p>y2</p>
+                                        </div>
+                                    </div>
+                                    <div id="right-section-mission-3">
+                                        <p class="disc-header" id="disc-header-3">Items on ship:</p>
+                                        <div class="disc">
+                                            <p>y3</p>
+                                        </div>
+                                    </div>
+                                    <div id="right-section-mission-4">
+                                        <p class="disc-header" id="disc-header-4"></p>
+                                        <div class="disc" id="planet-disc-mission">
+                                           <div id="moon-info-mission">
+                                                <p>Scan: Moon</p>
+                                                <p>Launch satellite and orbit around Moon</p>
+                                                <p>Distance:&nbsp&nbsp&nbsp 0 AU</p>
+                                                <p>Satellites in orbit:&nbsp&nbsp&nbsp ???</p>
+                                                <p>Surface area:&nbsp&nbsp&nbsp 3.793*107 km2</p>
+                                                <p>Area explored:&nbsp&nbsp&nbsp ???</p>
+                                                <p>Eta:&nbsp&nbsp&nbsp 60s</p>
+                                           </div>
+                                           <button id="scan-moon-btn">Scan</button>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>    
+                         </div>      
+                     </div>         
+                 </div>  
+            </div>
+        </div>
+        <script src="jq-3-7.js"></script>
+        <script src="scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,267 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #000000 !important;
+    color: #EEEEEE !important;
+}
+
+#inventory-info{
+    width: auto;
+}
+
+#main-title {
+    font-size: 48px;
+    position: absolute;
+    left:40%;
+}
+#money-main{
+    font-size: 50px;
+    position: absolute;
+    top:60px;
+    right:70px;
+}
+#inventory-info{
+    font-size: 50px;
+    position: absolute;
+    top:150px;
+    left:70px;
+}
+#main-menu{
+    position: absolute;
+    bottom:0px; 
+    background-color:#c24d2c;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+}
+
+.menu-btn{
+    font-size: 22px;
+    padding: 10px !important;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.menu-btn:hover{
+    background-color: #8abae0;
+}
+.menu-btn:active{
+    background-color: #068FFF;
+}
+
+
+/* PAGE means window opend after clicking a main menu btn*/
+.page{
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    
+    display: none;
+    background-color: #000000;
+    opacity: .98;
+}
+.top-bar-area{ 
+    margin-bottom: 30px;
+    height: 10vh;
+}
+.info-section{
+    margin-bottom: 20px;
+}
+.info-top{
+    margin-left: 20%;
+    margin-bottom: 10px;
+}
+.info-bottom{
+    font-size: 22px;
+}
+.money-page{
+    margin-right: 100px;
+}
+.lower-area{
+    height: 85vh;
+}
+.left-sidebar{
+    display: flex;
+    justify-content: space-between;
+}
+.info-section{
+    font-size: 30px;
+}
+.title-section{
+    font-size: 36px;
+    position: relative;
+    text-align: center;
+}
+.disc-header{
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 60px;
+}
+.disc{
+    font-size: 24px;
+}
+.back-btn{
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.back-btn:hover{
+    background-color: #8abae0;
+}
+.back-btn:active{
+    background-color: #068FFF;
+}
+
+
+/* science-sections */
+#left-section-science-1{
+    display: block;
+}
+#left-section-science-2{
+    display: none;
+}
+#left-section-science-3{
+    display: none;
+}
+#left-section-science-4{
+    display: none;
+}
+#left-section-science-5{
+    display: none;
+}
+#right-section-science-1{
+    display: block;
+}
+#right-section-science-2{
+    display: none;
+}
+#right-section-science-3{
+    display: none;
+}
+#right-section-science-4{
+    display: none;
+}
+#right-section-science-5{
+    display: none;
+}
+
+
+/* new-rocket-sections */
+#left-section-new-rocket-1{
+    display: block;
+}
+#left-section-new-rocket-2{
+    display: none;
+}
+#left-section-new-rocket-3{
+    display: none;
+}
+#left-section-new-rocket-4{
+    display: none;
+}
+#right-section-new-rocket-1{
+    display: block;
+}
+#right-section-new-rocket-2{
+    display: none;
+}
+#right-section-new-rocket-3{
+    display: none;
+}
+#right-section-new-rocket-4{
+    display: none;
+}
+
+
+/* missions-sections */
+#left-section-mission-1{
+    display: block;
+}
+#left-section-mission-2{
+    display: none;
+}
+#left-section-mission-3{
+    display: none;
+}
+#left-section-mission-4{
+    display: none;
+}
+#right-section-mission-1{
+    display: block;
+}
+#right-section-mission-2{
+    display: none;
+}
+#right-section-mission-3{
+    display: none;
+}
+#right-section-mission-4{
+    display: none;
+}
+
+
+/* rocket stat in mission-lower-area-left-section-stat */
+.chem-rocket-stats-section{
+    position: relative;
+}
+.stat-digit{
+    position: absolute;
+    right: 20%;
+}
+#set-destination-btn{
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 100px;
+}
+#set-destination-btn:hover{
+    background-color: #8abae0;
+}
+#set-destination-btn:active{
+    background-color: #068FFF;
+}
+
+
+/* destination page */
+#destination-page{
+    position: relative;
+    height: 100vh;
+}
+#dest-page-back-btn{
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    border-radius: 0 10% 0 0 ;
+    cursor: pointer;
+    position: absolute;
+    left:0;
+    bottom: 0;
+}
+#dest-page-back-btn:hover{
+    background-color: #8abae0;
+}
+#dest-page-back-btn:active{
+    background-color: #068FFF;
+}
+.planet-selected{
+    background-color: #c24d2c !important;
+}
+
+
+/* rocket details in new-rocket / submenu changes by clicking btns */
+.build-cost{  
+    margin-top:90px;
+}
+.build-btn-single{ 
+    margin-top:50px;
+}
+
+/* science menu*/
+#research-first-moon-lander{
+    margin-top:200px
+}
