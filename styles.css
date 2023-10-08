@@ -16,6 +16,10 @@ body{
     font-size: 48px;
     position: absolute;
     left:40%;
+    background-color: gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
 }
 #money-main{
     font-size: 50px;
@@ -31,7 +35,7 @@ body{
 }
 #main-menu{
     position: absolute;
-    bottom:0px; 
+    bottom:0; 
     background-color:#c24d2c;
     width: 100%;
     height: 100px;
@@ -57,15 +61,34 @@ body{
     z-index: 1000;
     width: 100vw;
     height: 100vh;
-    
     display: none;
     background-color: #000000;
     opacity: .98;
 }
 .top-bar-area{ 
-    margin-bottom: 30px;
+    margin-bottom: 75px;
     height: 10vh;
 }
+.lower-area{
+    height: 75vh;
+    z-index: 10;
+}
+/* planet */
+.top-bar-area-planet{ 
+    margin-bottom: 70px;
+    height: 10vh;
+}
+.middle-area-planet{
+    height: 10vh;
+}
+.lower-area-planet{
+    height: 70vh;
+    z-index: 10;
+}
+.crew-amount{
+    width: 50% !important;
+}
+/* / */
 .info-section{
     margin-bottom: 20px;
 }
@@ -78,9 +101,6 @@ body{
 }
 .money-page{
     margin-right: 100px;
-}
-.lower-area{
-    height: 85vh;
 }
 .left-sidebar{
     display: flex;
@@ -97,10 +117,10 @@ body{
 .disc-header{
     font-weight: 700;
     font-size: 28px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 .disc{
-    font-size: 24px;
+    font-size: 16px;
 }
 .back-btn{
     font-size: 24px;
@@ -186,9 +206,6 @@ body{
 #left-section-mission-3{
     display: none;
 }
-#left-section-mission-4{
-    display: none;
-}
 #right-section-mission-1{
     display: block;
 }
@@ -198,43 +215,44 @@ body{
 #right-section-mission-3{
     display: none;
 }
-#right-section-mission-4{
-    display: none;
-}
 
 
 /* rocket stat in mission-lower-area-left-section-stat */
 .chem-rocket-stats-section{
     position: relative;
 }
+.first-moon-lander-stats{
+    position: relative;
+}
+.first-moon-lander-stats-m{
+    position: relative;
+}
 .stat-digit{
     position: absolute;
     right: 20%;
 }
-#set-destination-btn{
+.set-destination-btn{
     font-size: 30px;
     border-radius: 10px;
     padding: 10px;
-    border-radius: 10px;
     cursor: pointer;
-    margin-top: 100px;
+    margin-top: 50px;
 }
-#set-destination-btn:hover{
+.set-destination-btn:hover{
     background-color: #8abae0;
 }
-#set-destination-btn:active{
+.set-destination-btn:active{
     background-color: #068FFF;
 }
 
 
 /* destination page */
-#destination-page{
+#destination-page, #market-page{
     position: relative;
     height: 100vh;
 }
-#dest-page-back-btn{
+#dest-page-back-btn, #market-page-back-btn{
     font-size: 30px;
-    border-radius: 10px;
     padding: 10px;
     border-radius: 0 10% 0 0 ;
     cursor: pointer;
@@ -242,10 +260,10 @@ body{
     left:0;
     bottom: 0;
 }
-#dest-page-back-btn:hover{
+#dest-page-back-btn:hover, #market-page-back-btn:hover{
     background-color: #8abae0;
 }
-#dest-page-back-btn:active{
+#dest-page-back-btn:active, #market-page-back-btn:active{
     background-color: #068FFF;
 }
 .planet-selected{
@@ -255,13 +273,233 @@ body{
 
 /* rocket details in new-rocket / submenu changes by clicking btns */
 .build-cost{  
-    margin-top:90px;
+    margin-top:20px;
 }
 .build-btn-single{ 
     margin-top:50px;
 }
 
-/* science menu*/
-#research-first-moon-lander{
-    margin-top:200px
+/* astronuat center */
+#top-btn-astro-wrap{
+padding: 40px;
+padding-left:45px;
+padding-right:45px;
+}
+#back-btn-astro{
+    position: absolute;
+    bottom: 0;
+}
+#astro-info-wrap{
+    font-size: 32px;
+    text-align: center;
+    height: 50vh;
+}
+.astro-count-info{
+    margin-top:50px;
+}
+.hire-btn{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+.astro-btn-planet{
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+.selected-btn-border{
+    border: solid green 4px;
+}
+
+/* science btns */
+#science-first-moon-lander-btn{
+    position: relative;
+    bottom: 20px;
+}
+#fml-level{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: aqua;
+    border: solid 1px green;
+    font-size: 16px;
+}
+/* count down red effects */
+#count-down-fml-ressearch-wrap, #time-left-m-2-wrap, #time-left-m-3-wrap{
+    color: red;
+}
+
+.req-not-met{
+    color: red;
+}
+
+
+/* market */
+.market-wrap{
+    margin-top: 20px !important;
+    font-size: 32px;
+}
+.col-centered{
+    text-align: center;
+}
+.amount-btn-wrap{
+    align-items: center;
+    margin-top: 250px !important;
+}
+#maket-money-amount{
+    margin-left: 50px;
+}
+.market-amount-btn{   
+    border: none;
+    font-size: 32px;
+    color: white;
+    background-color: black;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 30%;
+    text-align: center;
+}
+.market-amount-btn:hover{
+    background-color: #2e2525;
+}
+.market-amount-btn:active{
+    background-color: darkgreen;
+}
+#market-page{
+    background-image: url('./img/market-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* images */
+#science-btn, #astro-btn, #new-rocket-btn, #missions-btn,
+#destinations-btn, #market-btn,
+#new-rocket-btn-1, #new-rocket-btn-2, #new-rocket-btn-3, #new-rocket-btn-4,
+.chemRocketIcon, .fmlIcon, .astronautIcon, .cargoIcon, .shipStatusIcon,
+.baseIcon, .firstContactIcon, 
+.basicAreaScanIcon, .basicAtmosphericIcon, .basicSamplingIcon, .basicSeismicIcon, 
+.exploreOnFootIcon, .collectStoneIcon,
+#science-btn-1, #science-btn-2, #science-btn-3, #science-btn-4, #science-btn-5,
+#science-ion-rocket-btn,
+#moon-btn-1, #moon-btn-2{
+    background-size: 60px 60px;
+    width: 62px;
+    height: 62px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#science-btn{
+    background-image: url('img/science-main-btn.jpg');
+}
+#astro-btn{
+    background-image: url('img/astrounat-main-btn.jpg');
+}
+#new-rocket-btn{
+    background-image: url('img/new-rocket-main-btn.jpg');
+}
+#missions-btn{
+    background-image: url('img/mission-main-btn.jpg');
+}
+#destinations-btn{
+    background-image: url('img/destinations-main-btn.jpg');
+}
+#market-btn{
+    background-image: url('img/market-main-btn.jpg');
+}
+/* // */
+#new-rocket-btn-1{
+    background-image: url('img/new-rockets-sub-btn-1.jpg');
+}
+#new-rocket-btn-2{
+    background-image: url('img/new-rockets-sub-btn-1.jpg');
+}
+#new-rocket-btn-3{
+    background-image: url('img/new-rockets-sub-btn-1.jpg');
+}
+#new-rocket-btn-4{
+    background-image: url('img/new-rockets-sub-btn-4.jpg');
+}
+.chemRocketIcon{
+    background-image: url('img/new-rockets-sub-1-chem-rocket.jpg');
+}
+.fmlIcon{
+    background-image: url('img/new-rockets-sub-1-fml.jpg');
+}
+.astronautIcon{
+    background-image: url('img/astronaut-icon.jpg');
+}
+/* // */
+.cargoIcon{
+    background-image: url('img/cargo-icon.jpg');
+}
+.shipStatusIcon{
+    background-image: url('img/ship-status-icon.jpg');
+}
+.baseIcon{
+    background-image: url('img/baseIcon.jpg');
+}
+.firstContactIcon{
+    background-image: url('img/firstContactIcon.jpg');
+}
+.basicAreaScanIcon{
+    background-image: url('img/basicAreaScanIcon.jpg');
+}
+.basicAtmosphericIcon{
+    background-image: url('img/basicAtmosphericIcon.jpg');
+}
+.basicSamplingIcon{
+    background-image: url('img/basicSamplingIcon.jpg');
+}
+.basicSeismicIcon{
+    background-image: url('img/basicSeismicIcon.jpg');
+}
+.exploreOnFootIcon{
+    background-image: url('img/exploreOnFootIcon.jpg');
+}
+.collectStoneIcon{
+    background-image: url('img/collectStoneIcon.jpg');
+}
+/*  */
+#science-btn-1{
+    background-image: url('img/science-sub-1.jpg');
+}
+#science-btn-2{
+    background-image: url('img/science-sub-2.jpg');
+}
+#science-btn-3{
+    background-image: url('img/science-sub-3.jpg');
+}
+#science-btn-4{
+    background-image: url('img/science-sub-4.jpg');
+}
+#science-btn-5{
+    background-image: url('img/science-sub-5.jpg');
+}
+#science-ion-rocket-btn{
+    background-image: url('img/science-sub-2-ion-rocket.jpg');
+}
+/* // */
+#moon-btn-1{
+    background-image: url('img/moon-btn-1.jpg');
+}
+#moon-btn-2{
+    background-image: url('img/moon-btn-2.jpg');
+}
+
+/* / */
+.main-area-row{
+    background-image: url('/img/main-page-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1050px;
+}
+#destination-page{
+    background-image: url('/img/destination-page-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }

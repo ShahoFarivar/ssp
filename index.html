@@ -5,29 +5,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SSP</title>
         <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
     </head>
     <body>  
         <div class="main-area container-fluid">
             <div class="row main-area-row">
+                <form method="post" ACTION="update.php">
+                    <INPUT TYPE="submit" NAME="submit" id="submit" VALUE="Save">
+                </form>
                 <!-- main-page -->
                 <div class="main-page-items" id="header-bar">
-                    <div id="main-title">Sherbal Space Programm</div>
+                    <div id="main-title">Sherbal Space Program</div>
                     <div id="money-main">Money:
                         <span class="money-amount" ></span>
                     </div>
+                    <div><span id="demo"></span></div>
                 </div>
                 <div class="main-page-items" id="inventory-info">
                     <p>Rockets:</p>
                     <p><span id="chem-rocket-amount-main"></span></p>
+                    <p><span id="moon-lander-amount-main"></span></p>
                 </div>
                 <div class="main-page-items" id="main-menu">
-                    <button class="menu-btn" id="science-btn">Science</button>
-                    <button class="menu-btn" id="destinations-btn">Destinations</button>
-                    <button class="menu-btn" id="new-rocket-btn">New Rocket</button>
-                    <button class="menu-btn" id="missions-btn">Missions</button>
+                    <button class="menu-btn show-after-first-rocket-scan" id="science-btn"></button>
+                    <button class="menu-btn show-after-first-rocket-scan" id="astro-btn"></button>
+                    <button class="menu-btn hide-on-first-load" id="destinations-btn"></button>
+                    <button class="menu-btn hide-on-first-load show-on-first-land" id="market-btn"></button>
+                    <button class="menu-btn" id="new-rocket-btn"></button>
+                    <button class="menu-btn hide-on-first-load" id="missions-btn"></button>
                 </div> 
                 <!-- science-page -->
                 <div class="page container-fluid" id="science-page">
@@ -39,7 +48,7 @@
                                     <p class="money-page">Money: 
                                         <span class="money-amount"></span>  
                                     </p>
-                                    <p id="tech-point-page">Tech Points: </p>
+                                    <p class="tech-point-page">Tech Points: <span class="tech-amount"></span></p>
                                  </div>
                              </div>
                          </div>
@@ -50,25 +59,25 @@
                      <div class="row lower-area">
                          <div class="col-1 left-sidebar flex-column">
                              <div class="btn-section d-flex flex-column">
-                                <button class="menu-btn" id="science-btn-1">Technologies</button>
-                                <button class="menu-btn" id="science-btn-2">Single-Use</button>
-                                <button class="menu-btn" id="science-btn-3">Reusable</button>
-                                <button class="menu-btn" id="science-btn-4">Building & Crafting</button>
-                                <button class="menu-btn" id="science-btn-5">Transport</button>
+                                <button class="menu-btn" id="science-btn-1"></button>
+                                <button class="menu-btn" id="science-btn-2"></button>
+                                <button class="menu-btn" id="science-btn-3"></button>
+                                <button class="menu-btn" id="science-btn-4"></button>
+                                <button class="menu-btn" id="science-btn-5"></button>
                              </div>
                              <button class="back-btn">Back</button>
                          </div>
                          <div class="col-10 right-siderbar">
                             <div class="row">
-                                <div class="col-5 left-section">
+                                <div class="col-5 left-section science-sections">
                                     <div id="left-section-science-1">
                                         <p class="disc-header">Technologies</p>
                                     </div>
                                     <div id="left-section-science-2">
                                         <p class="disc-header">Single-use Spacecrafts</p>
-                                        <button class="menu-btn">Chemical</button>
-                                        <button class="menu-btn">Ion Powered</button>
-                                        <button class="menu-btn">Moon Lander</button>
+                                        <button class="menu-btn chemRocketIcon" id="science-chem-rocket-btn"></button>
+                                        <button class="menu-btn" id="science-ion-rocket-btn"></button>
+                                        <button class="menu-btn fmlIcon" id="science-first-moon-lander-btn"><span id="fml-level"></span></button>
                                     </div>
                                     <div id="left-section-science-3">
                                         <p class="disc-header">Reusable Spacecrafts</p>
@@ -80,46 +89,116 @@
                                         <p class="disc-header">Transport</p>
                                     </div>
                                 </div>
-                                <div class="col-5 right-section">
+                                <div class="col-5 right-section science-sections">
                                     <div id="right-section-science-1">
-                                        <p class="disc-header">X1</p>
-                                        <div class="disc">
-                                            <p>Skins not available for this ship type.</p>
-                                        </div>
                                     </div>
                                     <div id="right-section-science-2">
-                                        <div class="right-section-discriptions">
-                                            <div class="first-moon-lander-disc-sci">
-                                                <p class="disc-header" id="first-moon-lander-header-sci">First Moon Lander</p>
-                                                <p class="disc">+0.3 Au range</p>
-                                                <p class="disc">Money costs: <span class="stat-digit">25</span></p>
-                                                <p class="disc">Tech costs: <span class="stat-digit">0</span></p>
-                                                <button class="menu-btn" id="research-first-moon-lander">Research</button>
-                                            </div>
+                                        <div class="research-single-rocket-detail" id="research-chem-rocket-detail">
+                                            <p class="disc-header">Chemical-powered Satellite</p>
+                                            <div class="disc">
+                                                <p>+1.0 AU range</p>
+                                                <div class="build-cost">Research costs: 100 Credits</div>
+                                                <p>Tech costs: 0</p>
+                                            </div>    
+                                            <button class="menu-btn build-btn-single" id="research-chem-rocket-btn">Research</button>
+                                        </div>
+                                        <div class="research-single-rocket-detail" id="research-ion-rocket-detail">
+                                            <p class="disc-header">Ion-powered Satellite</p>
+                                            <div class="disc">
+                                                <p>Improving this tech allows a greater range of ion satellites.</p>
+                                                <div class="build-cost">Research costs: 500 Credits</div>
+                                                <p>Tech costs: 5</p>
+                                            </div>    
+                                            <button class="menu-btn build-btn-single" id="research-ion-rocket-btn">Research</button>
+                                        </div>
+                                        <div class="research-single-rocket-detail" id="research-moon-lander-detail">
+                                            <p class="disc-header">First Moon Lander</p>
+                                            <div class="disc">
+                                                <p>+0.3 AU range</p>
+                                                <div class="build-cost">Research costs: <span id="fml-credit"> </span> Credits</div>
+                                                <p>Tech costs: 0</p>
+                                                <p id="count-down-fml-ressearch-wrap">Time left: <span id="count-down-fml-ressearch"></span></p>
+                                            </div>    
+                                            <button class="menu-btn build-btn-single menu-btn" id="research-moon-lander-btn">Research</button>
                                         </div>
                                     </div>
                                     <div id="right-section-science-3">
-                                        <p class="disc-header">X3</p>
-                                        <div class="disc">
-                                            <p>X33</p>
-                                        </div>
+                                        
                                     </div>
                                     <div id="right-section-science-4">
-                                        <p class="disc-header">X4</p>
                                     </div>
                                     <div id="right-section-science-5">
-                                        <p class="disc-header">X5</p>
+                                       
                                     </div>
                                 </div> 
                             </div> 
                          </div>      
                      </div>         
                 </div>
+                <!-- astronauts-page -->
+                <div class="page container" id="astro-page">
+                    <div class="row" id="top-btn-astro-wrap">
+                        <div>
+                            <button class="menu-btn" id="astro-btn-top">Astronauts</button>
+                            <button class="menu-btn" id="worker-btn-top">Workers</button>
+                        </div>
+                     </div>   
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 d-flex flex-column justify-content-between" id="astro-info-wrap">
+                            <div id="astronaut-wrap">
+                                <div>
+                                    <p>Astrounat Center</p>
+                                    <p>Train and hire a new astronauts.</p>
+                                    <p>Costs: 1200 credits</p>
+                                    <p class="astro-count-info">Total number of astronauts: <span id="astro-amount-center"></span></p>
+                                    <p>Current credits: <span class="money-astro-center"></span></p>
+                                </div>
+                                <div>
+                                    <button class="hire-btn" id="hire-astro-btn">Hire</button>
+                                </div>
+                            </div>
+                            <div id="worker-wrap">
+                                <div>
+                                    <p>Astrounat Center</p>
+                                    <p>Train and hire a new worker.</p>
+                                    <p>Costs: 100 credits</p>
+                                    <p class="astro-count-info">Total number of astronauts: <span id="worker-amount-center"></span></p>
+                                    <p>Current credits: <span class="money-astro-center"></span></p>
+                                </div>
+                                <div>
+                                    <button class="hire-btn" id="hire-worker-btn">Hire</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                    <div class="row" id="back-astro-wrap">
+                        <div>
+                            <button class="back-btn" id="back-btn-astro">Back</button> 
+                        </div>
+                    </div>
+                </div>
                 <!-- destination-page -->
                 <div class="container-fluid" id="destination-page">
-                    <button class="planets-btn" id="planet-moon">Moon</button>
+                    <button class="planets-btn menu-btn" id="planet-moon">Moon</button>
+                    <button class="planets-page menu-btn" id="moon-page-btn">Go to moon</button>
+                    <button class="planets-btn menu-btn" id="planet-mars">Mars</button>
                     <button id="dest-page-back-btn">Back</button>
-                    <button id="missions-page-btn">Missions</button>
+                    <button class="menu-btn" id="missions-page-btn">Missions</button>
+                </div>
+                <!-- market-page -->
+                <div class="container-fluid" id="market-page">
+                    <div class="row market-wrap">
+                        <div class="col-5 col-centered">Buy Materials</div>
+                        <div class="col-2 d-flex flex-column amount-btn-wrap">
+                            <button class="amount-selector market-amount-btn">x1</button>
+                            <button class="amount-selector market-amount-btn">x10</button>
+                            <button class="amount-selector market-amount-btn">x25</button>
+                        </div>
+                        <div class="col-5 col-centered "><span>Sell materials (5% selling fee)</span>
+                            <span id="maket-money-amount">Money: <span class="money-amount"></span></span>
+                        </div>
+                    </div>
+                    <button class="menu-btn" id="market-page-back-btn">Back</button>
                 </div>
                 <!-- new-rocket-page -->
                 <div class="page container-fluid" id="new-rocket-page">
@@ -131,7 +210,7 @@
                                     <p class="money-page">Money: 
                                         <span class="money-amount"></span>  
                                     </p>
-                                    <p id="tech-point-page">Tech Point: </p>
+                                    <p class="tech-point-page">Tech Point: <span class="tech-amount"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -140,19 +219,19 @@
                    <div class="row lower-area">
                     <div class="col-1 left-sidebar flex-column">
                         <div class="btn-section d-flex flex-column">
-                           <button class="menu-btn" id="new-rocket-btn-1">Single Use</button>
-                           <button class="menu-btn" id="new-rocket-btn-2">Reusable</button>
-                           <button class="menu-btn" id="new-rocket-btn-3">Modifications</button>
-                           <button class="menu-btn" id="new-rocket-btn-4">Hanger</button>
+                           <button class="menu-btn" id="new-rocket-btn-1"></button>
+                           <button class="menu-btn" id="new-rocket-btn-2"></button>
+                           <button class="menu-btn" id="new-rocket-btn-3"></button>
+                           <button class="menu-btn" id="new-rocket-btn-4"></button>
                         </div>
                         <button class="back-btn">Back</button>
                     </div>
                     <div class="col-10 right-siderbar">
                        <div class="row">
-                           <div class="col-5 left-section">
+                           <div class="col-5 left-section new-rocket-sections">
                                <div id="left-section-new-rocket-1">
-                                    <button class="menu-btn" id="new-chem-sat-btn">Chemical Satellite</button>
-                                    <button class="menu-btn" id="new-moon-lander-btn">Moon Lander</button>
+                                    <button class="menu-btn chemRocketIcon" id="new-chem-sat-btn"></button>
+                                    <button class="menu-btn fmlIcon" id="new-moon-lander-btn"></button>
                                </div>
                                <div id="left-section-new-rocket-2">
                                    <p class="disc-header">x2</p>
@@ -164,7 +243,7 @@
                                    <p class="disc-header">x4</p>
                                </div>
                            </div>
-                           <div class="col-5 right-section">
+                           <div class="col-5 right-section new-rocket-sections">
                                <div id="right-section-new-rocket-1" >
                                     <div class="single-rocket-detail" id="new-chem-rocket-detail">
                                         <p class="disc-header">Chemical Satellite</p>
@@ -225,85 +304,119 @@
                                     <p class="money-page">Money: 
                                         <span class="money-amount"></span>  
                                     </p>
-                                    <p id="tech-point-page">Rocket Durability: </p>
+                                    <p class="life-support">Life Support: 
+                                        <span class="life-support-m"></span>  
+                                    </p>
                                  </div>
                              </div>
                          </div>
                          <div class="col-6 title-section">
                             <span id="chem-rocket-mission-btn-topbar"></span>
+                            <span id="moon-lander-mission-btn-topbar"></span>
                          </div>
                     </div>
                      <div class="row lower-area">
                          <div class="col-1 left-sidebar flex-column">
                              <div class="btn-section d-flex flex-column">
-                                <button class="menu-btn" id="mission-btn-1">Skins</button>
-                                <button class="menu-btn" id="mission-btn-2">Astronaunts</button>
-                                <button class="menu-btn" id="mission-btn-3">Cargo</button>
-                                <button class="menu-btn" id="mission-btn-4">Send Rocket</button>
+                                <button class="menu-btn astronautIcon" id="mission-btn-1"></button>
+                                <button class="menu-btn cargoIcon" id="mission-btn-2"></button>
+                                <button class="menu-btn shipStatusIcon" id="mission-btn-3"></button>
                              </div>
                              <button class="back-btn">Back</button>
                          </div>
                          <div class="col-10 right-siderbar">
                             <div class="row">
-                                <div class="col-5 left-section">
+                                <div class="col-5 left-section mission-sections">
                                     <div id="left-section-mission-1">
-                                        <p class="disc-header">Available ship skins</p>
+                                        <div id="no-ship-selected-astro">
+                                            <p >No ship selected.</p>
+                                            <p>Select a ship from the top to open available actions.</p>
+                                        </div>
+                                        <div id="astro-left-section">
+                                            <p class="disc-header">On Planet: <span class="astro-on-planet-header"></span></p>
+                                            <div class="astro-btn-planet-wrap" id="addAstroWrap">
+                                                <button  class="menu-btn" id="addAstro">Add astronaut</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div id="left-section-mission-2">
-                                        <p class="disc-header">On Planet:</p>
+                                        <div id="no-ship-selected-cargo">
+                                            <p >No ship selected.</p>
+                                            <p>Select a ship from the top to open available actions.</p>
+                                        </div>
+                                        <div id="cargo-left-section">
+                                            <p class="disc-header">Items on planet</p>
+                                        </div>
                                     </div>
                                     <div id="left-section-mission-3">
-                                        <p class="disc-header">Items on planet</p>
-                                    </div>
-                                    <div id="left-section-mission-4">
                                         <div class="no-ship-selected">
                                             <p >No ship selected.</p>
                                             <p>Select a ship from the top to open available actions.</p>
                                         </div>
                                         <div class="chem-rocket-stats-section">
-                                            <p class="disc-header chem-rocket-stats" id="ship-stat-mission">Ship Stats</p>
+                                            <p class="disc-header chem-rocket-stats">Ship Stats</p>
                                             <p class="chem-rocket-stats">Fuel: <span class="stat-digit">0/0</span></p>
                                             <p class="chem-rocket-stats">Speed:  <span class="stat-digit">15 AU/h</span></p>
                                             <p class="chem-rocket-stats">Range:  <span class="stat-digit">7 AU</span></p>
                                             <p class="chem-rocket-stats">Cargo Space:  <span class="stat-digit">0</span></p>
                                             <p class="chem-rocket-stats">Durability:    <span class="stat-digit">100/100</span></p>
                                             <p class="chem-rocket-stats">On board: <span class="stat-digit">0/0</span></p>
-                                            <button class="chem-rocket-stats" id="set-destination-btn">Set Destination</button>
+                                            <button class="chem-rocket-stats set-destination-btn">Set Destination</button>
+                                        </div>
+                                        <div class="first-moon-lander-stats-section">
+                                            <p class="disc-header first-moon-lander-stats">Ship Stats</p>
+                                            <p class="first-moon-lander-stats">Fuel:  <span class="stat-digit">8/8</span></p>
+                                            <p class="first-moon-lander-stats">Speed:  <span class="stat-digit">10 AU/h</span></p>
+                                            <p class="first-moon-lander-stats">Range:  <span class="stat-digit">0.5 AU</span></p>
+                                            <p class="first-moon-lander-stats">Cargo Space:    <span class="stat-digit">3</span></p>
+                                            <p class="first-moon-lander-stats">Durability:  <span class="stat-digit">50/50</span></p>
+                                            <p class="first-moon-lander-stats">On board: <span class="stat-digit">0/1</span></p>
+                                            <button class="first-moon-lander-stats set-destination-btn">Set Destination</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-5 right-section">
+                                <div class="col-5 right-section mission-sections">
                                     <div id="right-section-mission-1">
-                                        <p class="disc-header" id="disc-header-1">Available ship modules</p>
-                                        <div class="disc">
-                                            <p>Skins not available for this ship type.</p>
+                                        <div id="astro-right-section">
+                                            <p class="disc-header">On Ship: <span class="astro-on-ship-header"></span></p>
+                                            <div class="astro-btn-ship-wrap" id="removeAstroWrap">
+                                                <button  class="menu-btn" id="removeAstro">Remove astronaut</button>
+                                            </div>
                                         </div>
                                     </div>
                                     <div id="right-section-mission-2">
-                                        <p class="disc-header">On Ship:</p>
-                                        <div class="disc" id="disc-header-2">
-                                            <p>y2</p>
-                                        </div>
+                                        <div id="cargo-right-section">
+                                            <p class="disc-header" id="disc-header-2">Items on ship</p>
+                                        </div>                             
                                     </div>
                                     <div id="right-section-mission-3">
-                                        <p class="disc-header" id="disc-header-3">Items on ship:</p>
-                                        <div class="disc">
-                                            <p>y3</p>
-                                        </div>
-                                    </div>
-                                    <div id="right-section-mission-4">
-                                        <p class="disc-header" id="disc-header-4"></p>
+                                        <p class="disc-header" id="disc-header-3"></p>
                                         <div class="disc" id="planet-disc-mission">
-                                           <div id="moon-info-mission">
-                                                <p>Scan: Moon</p>
+                                            <div id="no-destination-selected-mission">
+                                                <p>Select a destination first</p>
+                                            </div>
+                                            <div class="destination-selected-mission" id="moon-info-mission">
+                                                <p>Scan: <span class="selected-planet-mission"></span></p>
                                                 <p>Launch satellite and orbit around Moon</p>
                                                 <p>Distance:&nbsp&nbsp&nbsp 0 AU</p>
                                                 <p>Satellites in orbit:&nbsp&nbsp&nbsp ???</p>
                                                 <p>Surface area:&nbsp&nbsp&nbsp 3.793*107 km2</p>
                                                 <p>Area explored:&nbsp&nbsp&nbsp ???</p>
                                                 <p>Eta:&nbsp&nbsp&nbsp 60s</p>
+                                                <button class="menu-btn" id="scan-moon-btn">Scan</button>
                                            </div>
-                                           <button id="scan-moon-btn">Scan</button>
+                                           <div class="destination-selected-mission" id="land-first-moon-lander">
+                                                <p>Land: <span class="selected-planet-mission"></span></p>
+                                                <p>Mission overview:</p>
+                                                <p>Launch ship and land on the surface of moon.</p>
+                                                <p>Distance: <span class="stat-digit">0 AU</span></p>
+                                                <p>Fuel to destination: <span class="stat-digit">3.75</span></p>
+                                                <p>Fuel to return: <span class="stat-digit">3.03</span></p>
+                                                <p>Current fuel: <span class="stat-digit">8/8</span></p>
+                                                <p>Landing profit: <span class="stat-digit">0 cr</span></p>
+                                                <p id="no-astro-fml">No astronuat on board.</p>
+                                                <button class="menu-btn" id="land-first-moon-lander-btn">Land</button>
+                                           </div>          
                                         </div>
                                     </div>
                                 </div> 
@@ -311,8 +424,203 @@
                          </div>      
                      </div>         
                  </div>  
+                  <!-- Moon Page -->
+                <div class="page container-fluid" id="moon-page">
+                    <div class="row top-bar-area-planet">
+                         <div class="col-3">
+                             <div class="info-section">
+                                 <div class="info-top">Moon</div>
+                                 <div class="info-bottom d-flex">
+                                    <p class="money-page">Money: 
+                                        <span class="money-amount"></span>  
+                                    </p>
+                                    <p class="life-support">Life Support: 
+                                        <span class="life-support-m"></span>  
+                                    </p>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-6 title-section">
+                            <span id="moon-rockets-btns"></span>
+                         </div>
+                    </div>
+                    <div class="row middle-area-planet">
+                        <span class="crew-amount">Active Crews: <span id="available-crew"></span>
+                        </span>
+                        <span class="crew-amount">Busy Crews: <span id="busy-crew"></span>
+                        </span>
+                    </div>
+                     <div class="row lower-area-planet">
+                         <div class="col-1 left-sidebar flex-column">
+                             <div class="btn-section d-flex flex-column">
+                                <button class="menu-btn" id="moon-btn-1"></button>
+                                <button class="menu-btn" id="moon-btn-2"></button>
+                                <button class="menu-btn astronautIcon" id="moon-btn-3"></button>
+                                <button class="menu-btn cargoIcon" id="moon-btn-4"></button>
+                                <button class="menu-btn shipStatusIcon" id="moon-btn-5"></button>
+                             </div>
+                             <button class="back-btn" id="moon-page-back-btn">Back</button>
+                         </div>
+                         <div class="col-10 right-siderbar">
+                            <div class="row">
+                                <div class="col-5 left-section moon-sections">
+                                    <div id="left-section-moon-1">
+                                        <div class="no-ship-selected-m">
+                                            <p >No ship selected.</p>
+                                            <p>Select a ship from the top to open available actions.</p>
+                                        </div>
+                                        <div class="moon-section-sub-1" id="actions-left-section-m">
+                                            <button class="menu-btn baseIcon" id="ship-actions-m-left-1-btn"></button>
+                                            <button class="menu-btn firstContactIcon" id="ship-actions-m-left-2-btn"></button>
+                                            <button class="menu-btn basicSamplingIcon" id="ship-actions-m-left-3-btn"></button>
+                                            <button class="menu-btn basicAtmosphericIcon" id="ship-actions-m-left-4-btn"></button>
+                                            <button class="menu-btn basicAreaScanIcon" id="ship-actions-m-left-5-btn"></button>
+                                            <button class="menu-btn basicSeismicIcon" id="ship-actions-m-left-6-btn"></button>
+                                            <button class="menu-btn basicSamplingIcon" id="ship-actions-m-left-7-btn"></button>
+                                            <button class="menu-btn exploreOnFootIcon" id="ship-actions-m-left-8-btn"></button>
+                                        </div>
+                                    </div>
+                                    <div id="left-section-moon-2">
+                                        <div class="no-ship-selected-m">
+                                            <p >No ship selected.</p>
+                                            <p>Select a ship from the top to open available actions.</p>
+                                        </div>
+                                        <div class="moon-section-sub-2" id="astro-left-section-m">
+                                            <p class="disc-header">Astronaunts on planet</p>
+                                        </div>
+                                    </div>
+                                    <div id="left-section-moon-3">
+                                        <div class="no-ship-selected-m">
+                                            <p >No ship selected.</p>
+                                            <p>Select a ship from the top to open available actions.</p>
+                                        </div>
+                                        <div class="moon-section-sub-3 first-moon-lander-stats-section-m">
+                                            <p class="disc-header first-moon-lander-stats-m" id="ship-stat-moon">Ship Stats</p>
+                                            <p class="first-moon-lander-stats-m">Fuel:  <span class="stat-digit">4.25/8</span></p>
+                                            <p class="first-moon-lander-stats-m">Speed:  <span class="stat-digit">10 AU/h</span></p>
+                                            <p class="first-moon-lander-stats-m">Range:  <span class="stat-digit">0.5 AU</span></p>
+                                            <p class="first-moon-lander-stats-m">Cargo Space:    <span class="stat-digit">3</span></p>
+                                            <p class="first-moon-lander-stats-m">Durability:  <span class="stat-digit">45/50</span></p>
+                                            <p class="first-moon-lander-stats-m">On board: <span class="stat-digit">1/1</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 right-section moon-sections">
+                                    <div class="moon-section-sub-1" id="right-section-moon-1">
+                                        <div id="actions-right-section-m">
+                                            <div id="ship-actions-m-right-1">
+                                                <p class="disc-header">Construct Outpost</p>
+                                                <p>Build an outpost. This will unlock more activites and Building
+                                                    options. This outpost can house up to 5 residents. All materials
+                                                    neet to be on board the ship.
+                                                </p>
+                                                <p>2 tools (0), 5 building materials (0), lifesupport 5 (5) </p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): New building, Unlocks more building options.</p>
+                                                <p class="req-not-met" id="req-not-met-m-1">Requirements not met</p>
+                                                <p id="time-left-m-1-wrap">Time Left: <span id="time-left-m-1"></span></p>
+                                                <p id="time-needed-m-1">Time: 15m</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-1-btn">Go</button>
+                                            </div> 
+                                            <div id="ship-actions-m-right-2">
+                                                <p class="disc-header">First Contact</p>
+                                                <p>Send a message to earth as the first ship 
+                                                    that has been landed.
+                                                </p>
+                                                <p>Action has no requirements.</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): 150 credits.</p>
+                                                <p class="req-not-met" id="req-not-met-m-2">Requirements not met.</p>
+                                                <p id="time-left-m-2-wrap">Time Left: <span id="time-left-m-2"></span></p>
+                                                <p id="time-needed-m-2">Time: 10s</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-2-btn">Go</button>
+                                            </div> 
+                                            <div id="ship-actions-m-right-3">
+                                                <p class="disc-header">Basic Sampling</p>
+                                                <p>Action has no requirements.</p>
+                                                <p>Perform some basic tests and gather samples.</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): 50 credits, 1 tech point.</p>
+                                                <p class="req-not-met" id="req-not-met-m-3">Requirements not met</p>
+                                                <p id="time-left-m-3-wrap">Time Left: <span id="time-left-m-3"></span></p>
+                                                <p id="time-needed-m-3">Time: 30s</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-3-btn">Go</button>
+                                            </div>  
+                                            <div id="ship-actions-m-right-4">
+                                                <p class="disc-header">Basic Atmospheric Measurement</p>
+                                                <p>Action has no requirements.</p>
+                                                <p>Gather atmospheric reading.</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): 50 credits, 1 tech point.</p>
+                                                <p class="req-not-met" id="req-not-met-m-4">Requirements not met</p>
+                                                <p id="time-left-m-4-wrap">Time Left: <span id="time-left-m-4"></span></p>
+                                                <p id="time-needed-m-4">Time: 60s</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-4-btn">Go</button>
+                                            </div>    
+                                            <div id="ship-actions-m-right-5">
+                                                <p class="disc-header">Basic Area Scan</p>
+                                                <p>Action has no requirements.</p>
+                                                <p>Take and area scan to map out the landing zone..</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): 60 credits, 1 tech point.</p>
+                                                <p class="req-not-met" id="req-not-met-m-5">Requirements not met</p>
+                                                <p id="time-left-m-5-wrap">Time Left: <span id="time-left-m-5"></span></p>
+                                                <p id="time-needed-m-5">Time: 2m 30s</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-5-btn">Go</button>
+                                            </div>  
+                                            <div id="ship-actions-m-right-6">
+                                                <p class="disc-header">Basic Seismic Scan</p>
+                                                <p>Action has no requirements.</p>
+                                                <p>Take seismic samples.</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): 100 credits, 1 tech point.</p>
+                                                <p class="req-not-met" id="req-not-met-m-6">Requirements not met</p>
+                                                <p id="time-left-m-6-wrap">Time Left: <span id="time-left-m-6"></span></p>
+                                                <p id="time-needed-m-6">Time: 60s</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-6-btn">Go</button>
+                                            </div>  
+                                            <div id="ship-actions-m-right-7">
+                                                <p class="disc-header">Collect Stone Samples</p>
+                                                <p>Requirements: 1 lifesupport.</p>
+                                                <p>Collect samples of stones to sell them on Earth.</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): Stone Samples.</p>
+                                                <p class="req-not-met" id="req-not-met-m-7">Requirements not met</p>
+                                                <p id="time-left-m-7-wrap">Time Left: <span id="time-left-m-7"></span></p>
+                                                <p id="time-needed-m-7">Time: 2m</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-7-btn">Go</button>
+                                            </div>  
+                                            <div id="ship-actions-m-right-8">
+                                                <p class="disc-header">Explore on Foot</p>
+                                                <p>Requirements: 1 lifesupport.</p>
+                                                <p>Explore the landing site on foot.</p>
+                                                <p>Experience: astronauts only.</p>
+                                                <p>Rewards(s): 100 credits.</p>
+                                                <p class="req-not-met" id="req-not-met-m-8">Requirements not met</p>
+                                                <p id="time-left-m-8-wrap">Time Left: <span id="time-left-m-8"></span></p>
+                                                <p id="time-needed-m-8">Time: 5m</p>
+                                                <button class="menu-btn" id="ship-actions-m-right-8-btn">Go</button>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="moon-section-sub-2" id="right-section-moon-2">
+                                        <div id="astro-right-section-m">
+                                            <p class="disc-header">Astronaunts on ship</p>
+                                        </div>                             
+                                    </div>
+                                    <div class="moon-section-sub-3" id="right-section-moon-3">
+                                        <p>Ship will be discarded on earth.</p>
+                                        <button class="menu-btn" id="send-back-to-earth-btn">Send back to earth</button>
+                                    </div>
+                                </div> 
+                            </div>    
+                         </div>      
+                     </div>         
+                </div>  
             </div>
         </div>
+        <script src="bootstrap.js"></script>
+        <script src="bootstrap.bundle.js"></script>
         <script src="jq-3-7.js"></script>
         <script src="scripts.js"></script>
     </body>
